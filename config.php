@@ -1,17 +1,16 @@
 <?php
 // Configurações do banco de dados
-$host = "localhost"; // Endereço do servidor MySQL
-$db_name = "TimeTrackDashboard"; // Nome do banco de dados
-$username = "root"; // Usuário do MySQL
-$password = ""; // Senha do MySQL
+$host = "localhost";
+$db_name = "TimeTrackDashboard";
+$username = "root";
+$password = "";
+$charset = 'utf8mb4';
 
 try {
-  // Criação da conexão usando PDO
-  $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-  // Configurar o PDO para lançar exceções em caso de erro
+  $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset";
+  $pdo = new PDO($dsn, $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Conexão com o banco de dados estabelecida com sucesso!";
 } catch (PDOException $e) {
-  // Caso ocorra um erro, exibe uma mensagem amigável
-  die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+  echo 'Erro de conexão: ' . $e->getMessage();
+  exit();
 }
