@@ -21,23 +21,28 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - TimeTrackDashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="dashboard-container">
-    <h2>Bem-vindo, <?php echo $user['full_name']; ?>!</h2>
-    <div class="indicators">
-      <p><strong>Saldo de Banco de Horas:</strong> 20h</p>
-      <p><strong>Horas Extras:</strong> 5h</p>
-      <p><strong>Horas Faltantes:</strong> 2h</p>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Bem-vindo, <?php echo htmlspecialchars($user['full_name']); ?></h5>
+            <div class="mb-3">
+              <p><strong>Nome de usuário:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+              <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+            </div>
+            <a href="logout.php" class="btn btn-danger">Sair</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="actions">
-      <a href="ajustar_ponto.php">Ajustar Ponto</a>
-      <a href="solicitacoes.php">Solicitações</a>
-    </div>
-    <a href="logout.php">Sair</a>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
