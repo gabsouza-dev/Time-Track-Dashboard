@@ -1,9 +1,9 @@
 <?php
 // Configurações do banco de dados
-$host = "localhost";
-$db_name = "TimeTrackDashboard";
-$username = "root";
-$password = "";
+$host = "sql308.infinityfree.com";
+$db_name = "if0_37666554_timetrackdashboard";
+$username = "if0_37666554";
+$password = "h9e8s3w2";
 $charset = 'utf8mb4';
 
 try {
